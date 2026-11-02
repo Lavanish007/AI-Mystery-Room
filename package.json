@@ -1,0 +1,37 @@
+{
+  "name": "ai-mystery-room",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "AI-powered web application where users create and solve mysteries generated using Gemini",
+  "workspaces": [
+    "shared",
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "build:shared": "node ./node_modules/typescript/bin/tsc --project shared/tsconfig.json",
+    "build:server": "node ./node_modules/typescript/bin/tsc --project server/tsconfig.json",
+    "build:client": "node ./node_modules/vite/bin/vite.js build client",
+    "build": "npm run build:shared && npm run build:server && npm run build:client",
+    "dev:server": "node server/dist/index.js",
+    "dev:client": "node ./node_modules/vite/bin/vite.js client",
+    "test": "npm run build:shared && npm run build:server && node --test tests/phase0.test.ts tests/phase2.test.ts tests/phase3.test.ts",
+    "typecheck": "node ./node_modules/typescript/bin/tsc --project shared/tsconfig.json --noEmit && node ./node_modules/typescript/bin/tsc --project server/tsconfig.json --noEmit && node ./node_modules/typescript/bin/tsc --project client/tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  },
+  "keywords": [
+    "ai",
+    "gemini",
+    "mystery",
+    "investigation",
+    "mern",
+    "react",
+    "nodejs",
+    "express"
+  ],
+  "author": "",
+  "license": "ISC"
+}
